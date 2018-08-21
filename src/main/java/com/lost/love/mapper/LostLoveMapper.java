@@ -19,6 +19,12 @@ public interface LostLoveMapper {
     @Select("select * from wall ")
     List<WallEntity> getWallEntityList();
 
+    @Select("select * from love_wall ")
+    List<WallEntity> getLoveWallEntityList();
+
     @Insert("INSERT INTO wall(user_name,content,create_date) VALUES(#{userName},#{content},NOW())")
     void save(WallEntity wallEntity);
+
+    @Insert("INSERT INTO love_wall(user_name,content,create_date) VALUES(#{userName},#{content},NOW())")
+    void saveLove(WallEntity wallEntity);
 }

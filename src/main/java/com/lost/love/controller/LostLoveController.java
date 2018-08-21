@@ -46,4 +46,29 @@ public class LostLoveController {
         wallServiceImpl.save(wallEntity);
         return "true";
     }
+
+
+    @GetMapping(value = "/lovewall")
+    @ResponseBody
+    public List<WallEntity> getloveWallList(HttpServletRequest httpServletRequest){
+        String ip = ToolUtils.getIP(httpServletRequest);
+        log.info("访问IP：" + ip);
+        List<WallEntity> wallEntities = wallServiceImpl.getWallEntityList();
+        return  wallEntities;
+    }
+
+    @PostMapping(value = "/savelove")
+    public String savelove(@RequestBody String json, HttpServletRequest httpServletRequest) throws Exception{
+        String ip = ToolUtils.getIP(httpServletRequest);
+        log.info("访问IP：" + ip);
+
+        String jsonStr=URLDecoder.decode(json,"utf-8");
+        System.out.println(jsonStr);
+        JSONObject jsonObject = JSONObject.parseObject(json);
+        WallEntity wallEntity = new WallEntity();
+        wallEntity.setContent(jsonObject.getString("content"));
+        wallEntity.setUserName(jsonObject.getString("userName"));
+        wallServiceImpl.saveLove(wallEntity);
+        return "true";
+    }
 }

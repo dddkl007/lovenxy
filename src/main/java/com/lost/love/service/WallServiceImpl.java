@@ -28,4 +28,14 @@ public class WallServiceImpl {
     public void save(WallEntity wallEntity){
         lostLoveMapper.save(wallEntity);
     }
+
+    public List<WallEntity> getLoveWallEntityList(){
+        List<WallEntity> wallEntities = new ArrayList<>();
+        wallEntities = lostLoveMapper.getLoveWallEntityList();
+        return wallEntities;
+    }
+
+    public void saveLove(WallEntity wallEntity){
+        lostLoveMapper.saveLove(wallEntity);
+    }
 }

@@ -53,7 +53,7 @@ public class LostLoveController {
     public List<WallEntity> getloveWallList(HttpServletRequest httpServletRequest){
         String ip = ToolUtils.getIP(httpServletRequest);
         log.info("访问IP：" + ip);
-        List<WallEntity> wallEntities = wallServiceImpl.getWallEntityList();
+        List<WallEntity> wallEntities = wallServiceImpl.getLoveWallEntityList();
         return  wallEntities;
     }
 

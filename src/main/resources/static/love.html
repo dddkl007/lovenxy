@@ -195,7 +195,7 @@
 		var tests= [];
 
 		$.ajax({
-           url:"http://"+ localhost +":8089/lostlovenxy/lostlove/lovewall",
+           url:"http://"+ localhost +":8088/love/lostlove/lovewall",
            success:function (result) {
                $.each(result, function (index, value) {
                    tests[index] = value.content;
@@ -226,7 +226,7 @@
 				if(value) {
                     $.ajax({
                         type: 'POST',
-                        url:"http://"+ localhost +":8089/lostlovenxy/lostlove/savelove",
+                        url:"http://"+ localhost +":8088/love/lostlove/savelove",
                         contentType: "application/json; charset=utf-8",
                         data:JSON.stringify(da),
                         dataType: "json",
